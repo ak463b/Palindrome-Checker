@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Palindrome Checker</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container glass">
+      <div class="mode-toggle">
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <h1 class="title">🔍 Palindrome Checker</h1>
+      <p class="subtext">Check if your text is a palindrome in real-time!</p>
+      <div class="input-group">
+        <input type="text" id="input-data" placeholder="Enter text here..." />
+        <button id="clear-button" title="Clear">✖</button>
+        <button id="voice-button" title="Speak">🎤</button>
+      </div>
+      <button id="check-button">Check</button>
+      <div id="result-box">
+        <p id="result-text"></p>
+        <div id="result-badge"></div>
+      </div>
+      <div id="history-box">
+        <h3>History</h3>
+        <ul id="history-list"></ul>
+      </div>
+    </div>
+    <footer>🚀 Built with 💜 by Alok</footer>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>

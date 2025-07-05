@@ -1,0 +1,154 @@
+/* Core styles + dark/light theme + animations */
+:root {
+  --bg: #1a1a40;
+  --text: #fff;
+  --accent: #00FFAB;
+  --badge-positive: #00FFAB;
+  --badge-negative: #FF6B6B;
+}
+
+body.light {
+  --bg: #f0f0f0;
+  --text: #000;
+  --accent: #0077ff;
+  --badge-positive: #4CAF50;
+  --badge-negative: #f44336;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 420px;
+}
+
+h1.title {
+  animation: typing 3s steps(20) infinite;
+  overflow: hidden;
+  border-right: 2px solid var(--text);
+  white-space: nowrap;
+}
+
+@keyframes typing {
+  0% { width: 0 }
+  50% { width: 100% }
+  100% { width: 0 }
+}
+
+.input-group {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 15px;
+}
+
+#clear-button, #voice-button {
+  position: absolute;
+  top: 20px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#clear-button { right: 40px; }
+#voice-button { right: 10px; }
+
+#check-button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#result-text, #result-badge {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#result-badge {
+  font-weight: bold;
+}
+
+#history-box {
+  margin-top: 25px;
+  text-align: left;
+}
+
+#history-box ul {
+  list-style: none;
+  padding-left: 0;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.mode-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
